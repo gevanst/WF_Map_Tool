@@ -125,6 +125,7 @@ fads_path = "data/fads_nmfs.shp" # point type fish aggregate devices
 zoning_path = "data/cty_zoning_mau.shp" #land zoning types polygon
 whale_habitat_file_path = "data/WhaleFalseKiller_MainHawaiianIslandsInsularDPS_20180724.shp"
 
+
 try:
         # Construct the GeoJSON URL
     arcgis_url = "https://services2.arcgis.com/C8EMgrsFcRFL6LrL/arcgis/rest/services/SealHawaiianMonk_20150821_line/FeatureServer/59/query"
@@ -689,6 +690,7 @@ st_data = st_folium(hawaii_map, width=800, height=500)
 info_container = st.container()
 
 #function to layout turbines
+@st.cache_data
 def layout_turbines(bounds, spacing, single_turbine=False):
     """
     Calculate turbine positions inside the selected rectangle, rounding down to ensure spacing.
