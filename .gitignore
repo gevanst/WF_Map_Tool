@@ -16,7 +16,7 @@ __pycache__/
 *.html
 
 # Ignore data files if they are large and not essential
-data/
+
 data/BC/
 data/D/
 data/hawaii_bty_5m/
