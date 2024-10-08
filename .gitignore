@@ -1,0 +1,46 @@
+
+# Ignore environment folders
+env/
+__pycache__/
+.vscode/
+
+# Ignore specific files
+*.pyc
+*.pyo
+*.log
+*.tmp
+*.pdf
+*.docx
+
+# Ignore HTML files if they are generated outputs
+*.html
+
+# Ignore data files if they are large and not essential
+data/
+data/BC/
+data/D/
+data/hawaii_bty_5m/
+data/mip2012_protected_areas/
+data/mip2012_growth_boundaries/
+
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+###
+src/adf_convert.py
+src/coordinate_ref_check.py
+src/eez_data_check.py
+src/hawaii_wind_speed_map_wind.py
+src/interactive_map_with_popup.py
+src/layer_check.py
+src/monkseal.py
+src/streamlit_folium_map.py
+src/windrose_check.py
+src/utm_check.py
+src/ORI_Mapping_Tool.py
+
+hawaii_wind_speed_map_wind.html
+interactive_map_with_popup.html
+interactive_wind_farm_map.html
