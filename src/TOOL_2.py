@@ -6,6 +6,8 @@ import geopandas as gpd
 import math
 from shapely.geometry import Polygon
 import requests
+import pandas as pd
+import shapely.wkb
 
 st.set_page_config(layout="wide")
 
@@ -358,7 +360,9 @@ def load_layer(layer_key):
             gdf['geometry'] = gdf['geometry'].simplify(info['simplify_tolerance'])
         if gdf.geometry.is_empty.any():
             gdf = gdf[~gdf.geometry.is_empty]
-        geojson_data = gdf.to_json(drop_id=True, double_precision=3)
+        # Reduce coordinate precision
+        gdf['geometry'] = gdf['geometry'].apply(lambda geom: shapely.wkb.loads(shapely.wkb.dumps(geom, rounding_precision=3)))
+        geojson_data = gdf.__geo_interface__
         return geojson_data, None
     elif 'url' in info:
         response = requests.get(info['url'], params=info['params'])
